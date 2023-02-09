@@ -5,12 +5,11 @@ from tkinter import Radiobutton
 from tkinter import ttk
 from tkinter import StringVar, IntVar
 
-from model import crear_base
+from model import Estudiante
 
 
 def principal(main):
     main.title("Estudiantes Universidad 2023")
-    crear_base()
 
     # TREEVIEW
 
@@ -32,10 +31,10 @@ def principal(main):
 
     # CREAR/BORRAR CURSO
 
-    nuevo_c = Button(main, text="Nuevo curso")
+    nuevo_c = Button(main, text="Nuevo curso", command=Estudiante().crear_tabla)
     nuevo_c.grid(row=0, columnspan=2, sticky="s", pady=10)
 
-    borrar_c = Button(main, text="Borrar curso")
+    borrar_c = Button(main, text="Borrar curso", command=Estudiante().borrar_tabla)
     borrar_c.grid(row=1, columnspan=2)
 
     # CARGAR ESTUDIANTE
@@ -52,15 +51,15 @@ def principal(main):
     carga_apellido.grid(row=6, column=0, sticky="w", padx=5)
     carga_nac.grid(row=7, column=0, sticky="w", padx=5)
 
-    dni = StringVar()
-    nombre = StringVar()
-    apellido = StringVar()
-    nac = IntVar()
+    carga_dni = StringVar()
+    carga_nombre = StringVar()
+    carga_apellido = StringVar()
+    carga_nac = IntVar()
 
-    dni_entry = Entry(main, textvariable=dni)
-    nombre_entry = Entry(main, textvariable=nombre)
-    apellido_entry = Entry(main, textvariable=apellido)
-    nac_entry = Entry(main, textvariable=nac)
+    dni_entry = Entry(main, textvariable=carga_dni)
+    nombre_entry = Entry(main, textvariable=carga_nombre)
+    apellido_entry = Entry(main, textvariable=carga_apellido)
+    nac_entry = Entry(main, textvariable=carga_nac)
     dni_entry.grid(row=4, column=1)
     nombre_entry.grid(row=5, column=1)
     apellido_entry.grid(row=6, column=1)
@@ -68,7 +67,7 @@ def principal(main):
 
     # CARGAR ESTUDIANTE (BOTON)
 
-    cargar_boton = Button(main, text="Cargar", width=15)
+    cargar_boton = Button(main, text="Cargar", width=15, command=lambda: Estudiante().crear_alumno(carga_dni, carga_nombre, carga_apellido, carga_nac))
     cargar_boton.grid(row=8, columnspan=2, pady=10)
 
     # BORRAR ESTUDIANTE (BOTON)
@@ -107,23 +106,25 @@ def principal(main):
     consul = Label(main, text="Consultar por datos")
     consul.grid(row=15, columnspan=2, sticky="s", pady=5)
 
-    c_opc_dni = Radiobutton(main, text="DNI", value=1)
+    consul_opc = IntVar()
+
+    c_opc_dni = Radiobutton(main, text="DNI", value=1, variable=consul_opc)
     c_opc_dni.grid(row=16, column=0, sticky="w", padx=28)
-    c_opc_nombre = Radiobutton(main, text="Nombre", value=2)
+    c_opc_nombre = Radiobutton(main, text="Nombre", value=2, variable=consul_opc)
     c_opc_nombre.grid(row=16, column=1, sticky="w", padx=20)
-    c_opc_apellido = Radiobutton(main, text="Apellido", value=3)
+    c_opc_apellido = Radiobutton(main, text="Apellido", value=3, variable=consul_opc)
     c_opc_apellido.grid(row=17, column=0, sticky="s", padx=10)
-    c_opc_nac = Radiobutton(main, text="Fecha de Nacimiento", value=4)
+    c_opc_nac = Radiobutton(main, text="Fecha de Nacimiento", value=4, variable=consul_opc)
     c_opc_nac.grid(row=17, column=1, sticky="w", padx=20)
 
     c_valor = StringVar()
 
-    nuevo_val = Label(main, text="Dato a consultar:")
-    nuevo_val.grid(row=18, column=0, pady=8)
-    nuevo_entry = Entry(main, textvariable=c_valor)
-    nuevo_entry.grid(row=18, column=1, pady=8)
+    consul_val = Label(main, text="Dato a consultar:")
+    consul_val.grid(row=18, column=0, pady=8)
+    consul_entry = Entry(main, textvariable=c_valor)
+    consul_entry.grid(row=18, column=1, pady=8)
 
     # CONSULTAR (BOTON)
 
-    modif_boton = Button(main, text="Consultar", width=15)
+    modif_boton = Button(main, text="Consultar", width=15, command=lambda: Estudiante().consultar_alumno(consul_opc, c_valor))
     modif_boton.grid(row=19, columnspan=2, pady=10)
