@@ -1,8 +1,8 @@
 from tkinter import Tk
-import view
+from view import Vista
 
 
 if __name__ == "__main__":
     main = Tk()
-    view.principal(main)
+    Vista().principal(main)
     main.mainloop()
