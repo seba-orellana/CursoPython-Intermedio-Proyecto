@@ -12,11 +12,12 @@ Proyecto del curso de python nivel intermedio UTN 2023
 *Modificado el codigo de view.py para que funcione con OOP  
 *Ajustado el codigo para que cumpla con pep8  
 *Agregada la funcion Borrar Estudiante al programa  
-*Modificada la funcion Agregar Estudiante para que funcione con el treeview  
+*Modificada la funcion Agregar Estudiante para que funcione con el treeview 
+
+*Agregada la funcion Modificar Estudiante
 
 FALTA POR HACER:  
 
--Agregar funcion para Modificar Estudiante  
 -Verificar try except  
 -Incorporar REGEX  
 -Ajustar formato de fecha de nacimiento
