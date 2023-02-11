@@ -19,7 +19,8 @@ class Vista():
         self.borrar_estudiante(main)
         self.modificar_estudiante(main)
         self.consultar_estudiante(main)
-        Estudiante().cargar_arbol(tree)
+        if Estudiante().tabla_existe():
+            Estudiante().cargar_arbol(tree)
 
     # TREEVIEW
 
@@ -50,7 +51,7 @@ class Vista():
         nuevo_c.grid(row=0, columnspan=2, sticky="s", pady=10)
 
         borrar_c = Button(main, text="Borrar curso",
-                          command=Estudiante().borrar_tabla)
+                          command=lambda: Estudiante().borrar_tabla(tree))
         borrar_c.grid(row=1, columnspan=2)
 
     # CARGAR ESTUDIANTE
@@ -102,18 +103,22 @@ class Vista():
     # MODIFICAR ESTUDIANTE
 
     def modificar_estudiante(self, main):
+        modif_opc = IntVar()
         valor = StringVar()
 
         modif = Label(main, text="Modificar datos")
         modif.grid(row=10, columnspan=2, sticky="s", pady=5)
 
-        opc_dni = Radiobutton(main, text="DNI", value=1)
+        opc_dni = Radiobutton(main, text="DNI", value=1, variable=modif_opc)
         opc_dni.grid(row=11, column=0, sticky="w", padx=28)
-        opc_nombre = Radiobutton(main, text="Nombre", value=2)
+        opc_nombre = Radiobutton(main, text="Nombre", value=2,
+                                 variable=modif_opc)
         opc_nombre.grid(row=11, column=1, sticky="w", padx=20)
-        opc_apellido = Radiobutton(main, text="Apellido", value=3)
+        opc_apellido = Radiobutton(main, text="Apellido", value=3,
+                                   variable=modif_opc)
         opc_apellido.grid(row=12, column=0, sticky="s", padx=10)
-        opc_nac = Radiobutton(main, text="Fecha de Nacimiento", value=4)
+        opc_nac = Radiobutton(main, text="Fecha de Nacimiento", value=4,
+                              variable=modif_opc)
         opc_nac.grid(row=12, column=1, sticky="w", padx=20)
 
         nuevo_val = Label(main, text="Nuevo Valor")
@@ -123,7 +128,9 @@ class Vista():
 
         # MODIFICAR (BOTON)
 
-        modif_boton = Button(main, text="Modificar", width=15)
+        modif_boton = Button(main, text="Modificar", width=15,
+                             command=lambda: Estudiante().modificar_alumno
+                             (modif_opc, valor, tree))
         modif_boton.grid(row=14, columnspan=2, pady=10)
 
     # CONSULTAR ESTUDIANTE

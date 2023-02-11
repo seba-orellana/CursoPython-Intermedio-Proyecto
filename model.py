@@ -32,7 +32,7 @@ class Estudiante(Base):
             showerror("Error al crear",
                       "Error: ya hay un curso creado y cargado en el sistema")
 
-    def borrar_tabla(self):
+    def borrar_tabla(self, tree):
         confirmar = askyesno("Confirmar",
                              "¿Desea borrar el cliente actual" +
                              " cargado en el sistema?")
@@ -43,6 +43,7 @@ class Estudiante(Base):
                 sql = "DROP TABLE curso"
                 cursor.execute(sql)
                 showinfo("Operacion completada", "Curso eliminado")
+                Estudiante.limpiar_arbol(tree)
 
     # MOSTRAR/BORRAR DATOS (ARBOL)
 
@@ -106,8 +107,8 @@ class Estudiante(Base):
                 cursor.execute(sql)
                 res = cursor.fetchone()
                 if res is None:
-                    showerror("Error al buscar", "No hay estudiante con el\
-                        nombre ingresado")
+                    showerror("Error al buscar",
+                              "No hay estudiante con el nombre ingresado")
                 else:
                     showinfo("Resultado de la busqueda", "DNI: "
                              + str(res[0])+"\nNombre: " + res[1] +
@@ -118,8 +119,8 @@ class Estudiante(Base):
                 cursor.execute(sql)
                 res = cursor.fetchone()
                 if res is None:
-                    showerror("Error al buscar", "No hay estudiante con el\
-                         apellido ingresado")
+                    showerror("Error al buscar",
+                              "No hay estudiante con el apellido ingresado")
                 else:
                     showinfo("Resultado de la busqueda", "DNI: "
                              + str(res[0])+"\nNombre: " + res[1] +
@@ -130,10 +131,45 @@ class Estudiante(Base):
                 cursor.execute(sql)
                 res = cursor.fetchone()
                 if res is None:
-                    showerror("Error al buscar", "No hay estudiante con la\
-                         fecha de nacimiento ingresada")
+                    showerror("Error al buscar",
+                              "No hay estudiante con la fecha"
+                              + " de nacimiento ingresada")
                 else:
                     showinfo("Resultado de la busqueda", "DNI: "
                              + str(res[0])+"\nNombre: " + res[1] +
                              "\nApellido: " + res[2] +
                              "\nFecha de Nacimiento: "+res[3])
+
+    # MODIFICAR
+
+    def modificar_alumno(self, opc, val, tree):
+        opcion = opc.get()
+        valor = val.get()
+        elem = tree.focus()
+        val_a_modificar = tree.item(elem)["values"][0]
+        match opcion:
+            case 1:
+                sql = ("UPDATE curso SET dni = '"
+                       + str(valor) + "' WHERE dni = '"
+                       + str(val_a_modificar)) + "'"
+                cursor.execute(sql)
+                con.commit()
+            case 2:
+                sql = ("UPDATE curso SET nombre = '"
+                       + str(valor) + "' WHERE dni = '"
+                       + str(val_a_modificar)) + "'"
+                cursor.execute(sql)
+                con.commit()
+            case 3:
+                sql = ("UPDATE curso SET apellido = '"
+                       + str(valor) + "' WHERE dni = '"
+                       + str(val_a_modificar)) + "'"
+                cursor.execute(sql)
+                con.commit()
+            case 4:
+                sql = ("UPDATE curso SET nacimiento = '"
+                       + str(valor) + "' WHERE dni = "
+                       + str(val_a_modificar))
+                cursor.execute(sql)
+                con.commit()
+        self.cargar_arbol(tree)
