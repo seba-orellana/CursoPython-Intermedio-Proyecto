@@ -16,8 +16,12 @@ Proyecto del curso de python nivel intermedio UTN 2023
 
 *Agregada la funcion Modificar Estudiante
 
+11/02/2023
+
+*Agregado validacion REGEX  
+*Ajustado el formato de la fecha de nacimiento para que coincida con DD/MM/AAAA
+
 FALTA POR HACER:  
 
 -Verificar try except  
--Incorporar REGEX  
--Ajustar formato de fecha de nacimiento
+-Testeo general de la aplicacion
