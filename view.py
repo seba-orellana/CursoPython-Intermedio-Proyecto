@@ -60,7 +60,7 @@ class Vista():
         dni_valor = StringVar()
         nombre_valor = StringVar()
         apellido_valor = StringVar()
-        nac_valor = IntVar()
+        nac_valor = StringVar()
 
         cargar = Label(main, text="Cargar estudiante al curso")
         cargar.grid(row=3, columnspan=2, sticky="s")

@@ -1,4 +1,5 @@
 import sqlite3
+import re
 from tkinter.messagebox import showerror, showinfo, askyesno
 
 
@@ -60,14 +61,46 @@ class Estudiante(Base):
             tree.insert("", "end", values=(str(datos[i][0]), str(datos[i][1]),
                                            str(datos[i][2]), str(datos[i][3])))
 
+    # REGEX
+
+    # FORMATO PARA VALIDAR LOS DATOS:
+
+    # DNI: 7 U 8 DIGITOS SIN PUNTOS
+    # NOMBRE: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS
+    # APELLIDO: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS
+    # FECHA: DD/MM/AAAA
+    # DD=[01-31]
+    # MM=[01-12]
+    # AAAA=[1900-2099]
+
+    def validar_fecha(self, string):
+        patron = ("^(0[1-9]|1[0-9]|2[0-9]|3[0-1])"
+                  "(/)(0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-9][0-9])$")
+        return re.match(patron, str(string))
+
+    def validar_dni(self, string):
+        patron = r'\d{7,8}$'
+        return re.match(patron, str(string))
+
+    def validar_nombre_apellido(self, string):
+        patron = "^[A-Za-z]{1,15}$"
+        return re.match(patron, str(string))
+
     # ALTA
 
     def crear_alumno(self, dni, nombre, apellido, nacimiento):
-        data = (dni.get(), nombre.get(), apellido.get(), nacimiento.get(),)
-        sql = "INSERT INTO curso(dni, nombre, apellido, nacimiento)\
-             VALUES (?,?,?,?)"
-        cursor.execute(sql, data)
-        con.commit()
+        if (self.validar_fecha(nacimiento.get())
+           and self.validar_dni(dni.get())
+           and self.validar_nombre_apellido(nombre.get())
+           and self.validar_nombre_apellido(apellido.get())):
+            data = (dni.get(), nombre.get(), apellido.get(), nacimiento.get(),)
+            sql = "INSERT INTO curso(dni, nombre, apellido, nacimiento)\
+                VALUES (?,?,?,?)"
+            cursor.execute(sql, data)
+            con.commit()
+        else:
+            showerror("Error al cargar estudiante",
+                      "Verifique el formato de los datos cargados")
 
     def insertar_alumno(self, dni, nombre, apellido, nacimiento, tree):
         self.crear_alumno(dni, nombre, apellido, nacimiento)
@@ -88,88 +121,123 @@ class Estudiante(Base):
 
     def consultar_alumno(self, opc, val):
         opcion = opc.get()
-        valor = val.get()
+        valor = str(val.get())
         match opcion:
             case 1:
-                sql = "SELECT * FROM curso WHERE dni = " + str(valor)
-                cursor.execute(sql)
-                res = cursor.fetchone()
-                if res is None:
-                    showerror("Error al buscar", "No hay estudiante\
-                         con el DNI ingresado")
+                if self.validar_dni(valor):
+                    sql = "SELECT * FROM curso WHERE dni = " + valor
+                    cursor.execute(sql)
+                    res = cursor.fetchone()
+                    if res is None:
+                        showerror("Error al buscar", "No hay estudiante\
+                            con el DNI ingresado")
+                    else:
+                        showinfo("Resultado de la busqueda", "DNI: "
+                                 + str(res[0])+"\nNombre: " + res[1] +
+                                 "\nApellido: " + res[2] +
+                                 "\nFecha de Nacimiento: "+res[3])
                 else:
-                    showinfo("Resultado de la busqueda", "DNI: "
-                             + str(res[0])+"\nNombre: " + res[1] +
-                             "\nApellido: " + res[2] +
-                             "\nFecha de Nacimiento: "+res[3])
+                    showerror("Error al consultar por DNI",
+                              "Verifique el formato del dato ingresado")
             case 2:
-                sql = "SELECT * FROM curso WHERE nombre = '"+str(valor)+"'"
-                cursor.execute(sql)
-                res = cursor.fetchone()
-                if res is None:
-                    showerror("Error al buscar",
-                              "No hay estudiante con el nombre ingresado")
+                if self.validar_nombre_apellido(valor):
+                    sql = "SELECT * FROM curso WHERE nombre = '" + valor + "'"
+                    cursor.execute(sql)
+                    res = cursor.fetchone()
+                    if res is None:
+                        showerror("Error al buscar",
+                                  "No hay estudiante con el nombre ingresado")
+                    else:
+                        showinfo("Resultado de la busqueda", "DNI: "
+                                 + str(res[0])+"\nNombre: " + res[1] +
+                                 "\nApellido: " + res[2] +
+                                 "\nFecha de Nacimiento: "+res[3])
                 else:
-                    showinfo("Resultado de la busqueda", "DNI: "
-                             + str(res[0])+"\nNombre: " + res[1] +
-                             "\nApellido: " + res[2] +
-                             "\nFecha de Nacimiento: "+res[3])
+                    showerror("Error al consultar por Nombre",
+                              "Verifique el formato del dato ingresado")
             case 3:
-                sql = "SELECT * FROM curso WHERE apellido = '"+str(valor)+"'"
-                cursor.execute(sql)
-                res = cursor.fetchone()
-                if res is None:
-                    showerror("Error al buscar",
-                              "No hay estudiante con el apellido ingresado")
+                if self.validar_nombre_apellido(valor):
+                    sql = ("SELECT * FROM curso WHERE apellido = '"
+                           + valor + "'")
+                    cursor.execute(sql)
+                    res = cursor.fetchone()
+                    if res is None:
+                        showerror("Error al buscar",
+                                  "No hay estudiante con el"
+                                  + "apellido ingresado")
+                    else:
+                        showinfo("Resultado de la busqueda", "DNI: "
+                                 + str(res[0])+"\nNombre: " + res[1] +
+                                 "\nApellido: " + res[2] +
+                                 "\nFecha de Nacimiento: "+res[3])
                 else:
-                    showinfo("Resultado de la busqueda", "DNI: "
-                             + str(res[0])+"\nNombre: " + res[1] +
-                             "\nApellido: " + res[2] +
-                             "\nFecha de Nacimiento: "+res[3])
+                    showerror("Error al consultar por Apellido",
+                              "Verifique el formato del dato ingresado")
             case 4:
-                sql = "SELECT * FROM curso WHERE nacimiento = '"+str(valor)+"'"
-                cursor.execute(sql)
-                res = cursor.fetchone()
-                if res is None:
-                    showerror("Error al buscar",
-                              "No hay estudiante con la fecha"
-                              + " de nacimiento ingresada")
+                if self.validar_fecha(valor):
+                    sql = ("SELECT * FROM curso WHERE nacimiento = '"
+                           + valor + "'")
+                    cursor.execute(sql)
+                    res = cursor.fetchone()
+                    if res is None:
+                        showerror("Error al buscar",
+                                  "No hay estudiante con la fecha"
+                                  + " de nacimiento ingresada")
+                    else:
+                        showinfo("Resultado de la busqueda", "DNI: "
+                                 + str(res[0])+"\nNombre: " + res[1] +
+                                 "\nApellido: " + res[2] +
+                                 "\nFecha de Nacimiento: "+res[3])
                 else:
-                    showinfo("Resultado de la busqueda", "DNI: "
-                             + str(res[0])+"\nNombre: " + res[1] +
-                             "\nApellido: " + res[2] +
-                             "\nFecha de Nacimiento: "+res[3])
+                    showerror("Error al consultar por Fecha de Nacimiento",
+                              "Verifique el formato del dato ingresado")
 
     # MODIFICAR
 
     def modificar_alumno(self, opc, val, tree):
         opcion = opc.get()
-        valor = val.get()
+        valor = str(val.get())
         elem = tree.focus()
-        val_a_modificar = tree.item(elem)["values"][0]
+        val_a_modificar = str(tree.item(elem)["values"][0])
         match opcion:
             case 1:
-                sql = ("UPDATE curso SET dni = '"
-                       + str(valor) + "' WHERE dni = '"
-                       + str(val_a_modificar)) + "'"
-                cursor.execute(sql)
-                con.commit()
+                if self.validar_dni(valor):
+                    sql = ("UPDATE curso SET dni = '"
+                           + valor + "' WHERE dni = '"
+                           + val_a_modificar) + "'"
+                    cursor.execute(sql)
+                    con.commit()
+                else:
+                    showerror("Error al modificar DNI",
+                              "Verifique el formato del dato ingresado")
             case 2:
-                sql = ("UPDATE curso SET nombre = '"
-                       + str(valor) + "' WHERE dni = '"
-                       + str(val_a_modificar)) + "'"
-                cursor.execute(sql)
-                con.commit()
+                if self.validar_nombre_apellido(valor):
+                    sql = ("UPDATE curso SET nombre = '"
+                           + valor + "' WHERE dni = '"
+                           + val_a_modificar) + "'"
+                    cursor.execute(sql)
+                    con.commit()
+                else:
+                    showerror("Error al modificar Nombre",
+                              "Verifique el formato del dato ingresado")
             case 3:
-                sql = ("UPDATE curso SET apellido = '"
-                       + str(valor) + "' WHERE dni = '"
-                       + str(val_a_modificar)) + "'"
-                cursor.execute(sql)
-                con.commit()
+                if self.validar_nombre_apellido(valor):
+                    sql = ("UPDATE curso SET apellido = '"
+                           + valor + "' WHERE dni = '"
+                           + val_a_modificar) + "'"
+                    cursor.execute(sql)
+                    con.commit()
+                else:
+                    showerror("Error al modificar Apellido",
+                              "Verifique el formato del dato ingresado")
             case 4:
-                sql = ("UPDATE curso SET nacimiento = '"
-                       + str(valor) + "' WHERE dni = "
-                       + str(val_a_modificar))
-                cursor.execute(sql)
-                con.commit()
+                if self.validar_fecha(valor):
+                    sql = ("UPDATE curso SET nacimiento = '"
+                           + valor + "' WHERE dni = "
+                           + val_a_modificar)
+                    cursor.execute(sql)
+                    con.commit()
+                else:
+                    showerror("Error al modificar la Fecha de Nacimiento",
+                              "Verifique el formato del dato ingresado")
         self.cargar_arbol(tree)
