@@ -1,6 +1,6 @@
-import sqlite3
-import re
 from tkinter.messagebox import showerror, showinfo, askyesno
+from regex import Reg
+import sqlite3
 
 
 class Base():
@@ -61,38 +61,13 @@ class Estudiante(Base):
             tree.insert("", "end", values=(str(datos[i][0]), str(datos[i][1]),
                                            str(datos[i][2]), str(datos[i][3])))
 
-    # REGEX
-
-    # FORMATO PARA VALIDAR LOS DATOS:
-
-    # DNI: 7 U 8 DIGITOS SIN PUNTOS
-    # NOMBRE: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS
-    # APELLIDO: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS
-    # FECHA: DD/MM/AAAA
-    # DD=[01-31]
-    # MM=[01-12]
-    # AAAA=[1900-2099]
-
-    def validar_fecha(self, string):
-        patron = ("^(0[1-9]|1[0-9]|2[0-9]|3[0-1])"
-                  "(/)(0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-9][0-9])$")
-        return re.match(patron, str(string))
-
-    def validar_dni(self, string):
-        patron = r'\d{7,8}$'
-        return re.match(patron, str(string))
-
-    def validar_nombre_apellido(self, string):
-        patron = "^[A-Za-z]{1,15}$"
-        return re.match(patron, str(string))
-
     # ALTA
 
     def crear_alumno(self, dni, nombre, apellido, nacimiento):
-        if (self.validar_fecha(nacimiento.get())
-           and self.validar_dni(dni.get())
-           and self.validar_nombre_apellido(nombre.get())
-           and self.validar_nombre_apellido(apellido.get())):
+        if (Reg().validar_fecha(nacimiento.get())
+           and Reg().validar_dni(dni.get())
+           and Reg().validar_nombre_apellido(nombre.get())
+           and Reg().validar_nombre_apellido(apellido.get())):
             data = (dni.get(), nombre.get(), apellido.get(), nacimiento.get(),)
             sql = "INSERT INTO curso(dni, nombre, apellido, nacimiento)\
                 VALUES (?,?,?,?)"
@@ -124,7 +99,7 @@ class Estudiante(Base):
         valor = str(val.get())
         match opcion:
             case 1:
-                if self.validar_dni(valor):
+                if Reg().validar_dni(valor):
                     sql = "SELECT * FROM curso WHERE dni = " + valor
                     cursor.execute(sql)
                     res = cursor.fetchone()
@@ -140,7 +115,7 @@ class Estudiante(Base):
                     showerror("Error al consultar por DNI",
                               "Verifique el formato del dato ingresado")
             case 2:
-                if self.validar_nombre_apellido(valor):
+                if Reg().validar_nombre_apellido(valor):
                     sql = "SELECT * FROM curso WHERE nombre = '" + valor + "'"
                     cursor.execute(sql)
                     res = cursor.fetchone()
@@ -156,7 +131,7 @@ class Estudiante(Base):
                     showerror("Error al consultar por Nombre",
                               "Verifique el formato del dato ingresado")
             case 3:
-                if self.validar_nombre_apellido(valor):
+                if Reg().validar_nombre_apellido(valor):
                     sql = ("SELECT * FROM curso WHERE apellido = '"
                            + valor + "'")
                     cursor.execute(sql)
@@ -174,7 +149,7 @@ class Estudiante(Base):
                     showerror("Error al consultar por Apellido",
                               "Verifique el formato del dato ingresado")
             case 4:
-                if self.validar_fecha(valor):
+                if Reg().validar_fecha(valor):
                     sql = ("SELECT * FROM curso WHERE nacimiento = '"
                            + valor + "'")
                     cursor.execute(sql)
@@ -201,7 +176,7 @@ class Estudiante(Base):
         val_a_modificar = str(tree.item(elem)["values"][0])
         match opcion:
             case 1:
-                if self.validar_dni(valor):
+                if Reg().validar_dni(valor):
                     sql = ("UPDATE curso SET dni = '"
                            + valor + "' WHERE dni = '"
                            + val_a_modificar) + "'"
@@ -211,7 +186,7 @@ class Estudiante(Base):
                     showerror("Error al modificar DNI",
                               "Verifique el formato del dato ingresado")
             case 2:
-                if self.validar_nombre_apellido(valor):
+                if Reg().validar_nombre_apellido(valor):
                     sql = ("UPDATE curso SET nombre = '"
                            + valor + "' WHERE dni = '"
                            + val_a_modificar) + "'"
@@ -221,7 +196,7 @@ class Estudiante(Base):
                     showerror("Error al modificar Nombre",
                               "Verifique el formato del dato ingresado")
             case 3:
-                if self.validar_nombre_apellido(valor):
+                if Reg().validar_nombre_apellido(valor):
                     sql = ("UPDATE curso SET apellido = '"
                            + valor + "' WHERE dni = '"
                            + val_a_modificar) + "'"
@@ -231,7 +206,7 @@ class Estudiante(Base):
                     showerror("Error al modificar Apellido",
                               "Verifique el formato del dato ingresado")
             case 4:
-                if self.validar_fecha(valor):
+                if Reg().validar_fecha(valor):
                     sql = ("UPDATE curso SET nacimiento = '"
                            + valor + "' WHERE dni = "
                            + val_a_modificar)
