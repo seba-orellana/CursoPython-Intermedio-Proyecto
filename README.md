@@ -21,7 +21,13 @@ Proyecto del curso de python nivel intermedio UTN 2023
 *Agregado validacion REGEX  
 *Ajustado el formato de la fecha de nacimiento para que coincida con DD/MM/AAAA
 
+8/3/2023
+
+*Agregado modulo de REGEX  
+
 FALTA POR HACER:  
 
+-Agregar modulo de Conexion a Base de Datos  
+-Agregar calendario a la fecha de Tkinter  
 -Verificar try except  
 -Testeo general de la aplicacion
