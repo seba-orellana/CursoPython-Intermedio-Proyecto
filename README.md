@@ -33,5 +33,5 @@ FALTA POR HACER:
 
 -Agregar calendario a la fecha de Tkinter  
 -Verificar try except  
--Testeo general de la aplicacion
+-Testeo general de la aplicacion  
 -Documentacion con sphinx
