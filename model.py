@@ -1,50 +1,9 @@
-from tkinter.messagebox import showerror, showinfo, askyesno
+from tkinter.messagebox import showerror, showinfo
 from regex import Reg
 import sqlite3
 
 
-class Base():
-    con = None
-    cursor = None
-
-    def __init__(self):
-        global cursor, con
-        con = sqlite3.connect("estudiantes_curso_2023.db")
-        cursor = con.cursor()
-
-
-class Estudiante(Base):
-
-    # CREACION/BORRADO DE TABLAS
-
-    def tabla_existe(self):
-        sql = "SELECT * FROM sqlite_master WHERE type='table'"
-        cursor.execute(sql)
-        return not (cursor.fetchall() == [])
-
-    def crear_tabla(self):
-        if not Estudiante().tabla_existe():
-            sql = "CREATE TABLE curso(dni INTEGER PRIMARY KEY,\
-                nombre TEXT, apellido TEXT, nacimiento TEXT)"
-            cursor.execute(sql)
-            showinfo("Exito al crear",
-                     "Curso creado y cargado al sistema con exito")
-        else:
-            showerror("Error al crear",
-                      "Error: ya hay un curso creado y cargado en el sistema")
-
-    def borrar_tabla(self, tree):
-        confirmar = askyesno("Confirmar",
-                             "¿Desea borrar el cliente actual" +
-                             " cargado en el sistema?")
-        if confirmar:
-            if not Estudiante().tabla_existe():
-                showerror("Error al borrar", "No hay curso creado previamente")
-            else:
-                sql = "DROP TABLE curso"
-                cursor.execute(sql)
-                showinfo("Operacion completada", "Curso eliminado")
-                Estudiante.limpiar_arbol(tree)
+class Estudiante():
 
     # MOSTRAR/BORRAR DATOS (ARBOL)
 
@@ -53,6 +12,8 @@ class Estudiante(Base):
             tree.delete(elem)
 
     def cargar_arbol(self, tree):
+        con = sqlite3.connect("estudiantes_curso_2023.db")
+        cursor = con.cursor()
         self.limpiar_arbol(tree)
         sql = "SELECT * FROM curso"
         cursor.execute(sql)
@@ -64,6 +25,8 @@ class Estudiante(Base):
     # ALTA
 
     def crear_alumno(self, dni, nombre, apellido, nacimiento):
+        con = sqlite3.connect("estudiantes_curso_2023.db")
+        cursor = con.cursor()
         if (Reg().validar_fecha(nacimiento.get())
            and Reg().validar_dni(dni.get())
            and Reg().validar_nombre_apellido(nombre.get())
@@ -84,6 +47,8 @@ class Estudiante(Base):
     # BAJA
 
     def borrar_alumno(self, tree):
+        con = sqlite3.connect("estudiantes_curso_2023.db")
+        cursor = con.cursor()
         elem = tree.focus()
         valor = tree.item(elem)["values"][0]
         tree.delete(elem)
@@ -95,6 +60,8 @@ class Estudiante(Base):
     # CONSULTA
 
     def consultar_alumno(self, opc, val):
+        con = sqlite3.connect("estudiantes_curso_2023.db")
+        cursor = con.cursor()
         opcion = opc.get()
         valor = str(val.get())
         match opcion:
@@ -170,6 +137,8 @@ class Estudiante(Base):
     # MODIFICAR
 
     def modificar_alumno(self, opc, val, tree):
+        con = sqlite3.connect("estudiantes_curso_2023.db")
+        cursor = con.cursor()
         opcion = opc.get()
         valor = str(val.get())
         elem = tree.focus()

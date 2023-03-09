@@ -6,10 +6,12 @@ from tkinter import ttk
 from tkinter import StringVar, IntVar
 
 from model import Estudiante
+from db import Base
 
 
 class Vista():
-    def __init__(self): pass
+    def __init__(self):
+        pass
 
     def principal(self, main):
         main.title("Estudiantes Universidad 2023")
@@ -19,7 +21,7 @@ class Vista():
         self.borrar_estudiante(main)
         self.modificar_estudiante(main)
         self.consultar_estudiante(main)
-        if Estudiante().tabla_existe():
+        if Base().tabla_existe():
             Estudiante().cargar_arbol(tree)
 
     # TREEVIEW
@@ -47,11 +49,11 @@ class Vista():
 
     def crear_borrar_curso(self, main):
         nuevo_c = Button(main, text="Nuevo curso",
-                         command=Estudiante().crear_tabla)
+                         command=Base().crear_tabla)
         nuevo_c.grid(row=0, columnspan=2, sticky="s", pady=10)
 
         borrar_c = Button(main, text="Borrar curso",
-                          command=lambda: Estudiante().borrar_tabla(tree))
+                          command=lambda: Base().borrar_tabla(tree))
         borrar_c.grid(row=1, columnspan=2)
 
     # CARGAR ESTUDIANTE
