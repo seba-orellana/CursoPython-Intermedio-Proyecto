@@ -25,9 +25,13 @@ Proyecto del curso de python nivel intermedio UTN 2023
 
 *Agregado modulo de REGEX  
 
+9/3/2023
+
+*Agregado modulo de Base de Datos
+
 FALTA POR HACER:  
 
--Agregar modulo de Conexion a Base de Datos  
 -Agregar calendario a la fecha de Tkinter  
 -Verificar try except  
 -Testeo general de la aplicacion
+-Documentacion con sphinx
