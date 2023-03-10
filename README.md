@@ -29,9 +29,12 @@ Proyecto del curso de python nivel intermedio UTN 2023
 
 *Agregado modulo de Base de Datos
 
+10/3/2023
+
+*Agregadas leyendas a las Entries de la carga de datos
+
 FALTA POR HACER:  
 
--Agregar calendario a la fecha de Tkinter  
 -Verificar try except  
 -Testeo general de la aplicacion  
 -Documentacion con sphinx

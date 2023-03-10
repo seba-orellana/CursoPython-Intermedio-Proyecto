@@ -58,6 +58,9 @@ class Vista():
 
     # CARGAR ESTUDIANTE
 
+    def borrar_info(self, info):
+        info.delete(0, "end")
+
     def cargar_estudiante(self, main):
         dni_valor = StringVar()
         nombre_valor = StringVar()
@@ -81,6 +84,22 @@ class Vista():
         nombre_entry = Entry(main, textvariable=nombre_valor)
         apellido_entry = Entry(main, textvariable=apellido_valor)
         nac_entry = Entry(main, textvariable=nac_valor)
+
+        dni_entry.insert(0, "123456789")
+        dni_entry.bind("<FocusIn>", lambda event:
+                       self.borrar_info(dni_entry))
+
+        nombre_entry.insert(0, "Nombre")
+        nombre_entry.bind("<FocusIn>", lambda event:
+                          self.borrar_info(nombre_entry))
+
+        apellido_entry.insert(0, "Apellido")
+        apellido_entry.bind("<FocusIn>", lambda event:
+                            self.borrar_info(apellido_entry))
+
+        nac_entry.insert(0, "DD/MM/AAAA")
+        nac_entry.bind("<FocusIn>", lambda event:
+                       self.borrar_info(nac_entry))
 
         dni_entry.grid(row=4, column=1)
         nombre_entry.grid(row=5, column=1)
