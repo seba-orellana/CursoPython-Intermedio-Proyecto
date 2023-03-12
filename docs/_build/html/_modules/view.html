@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>view &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controller.html">controller module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db.html">db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex.html">regex module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../view.html">view module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">view</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para view</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Entry</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Button</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Radiobutton</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">StringVar</span><span class="p">,</span> <span class="n">IntVar</span>
+
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Estudiante</span>
+<span class="kn">from</span> <span class="nn">db</span> <span class="kn">import</span> <span class="n">Base</span>
+
+
+<div class="viewcode-block" id="Vista"><a class="viewcode-back" href="../view.html#view.Vista">[documentos]</a><span class="k">class</span> <span class="nc">Vista</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase que almacena todos los metodos y variables necesarios para colocar \</span>
+<span class="sd">    todos los elementos en sus posiciones dentro de la aplicacion en tkinter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Vista.principal"><a class="viewcode-back" href="../view.html#view.Vista.principal">[documentos]</a>    <span class="k">def</span> <span class="nf">principal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que engloba e invoca a los metodos ``Vista.colocar_arbol()``, \</span>
+<span class="sd">        ``Vista.crear_borrar_curso``, ``Vista.cargar_estudiante``,\</span>
+<span class="sd">        ``Vista.borrar_estudiante(), ``Vista.modificar_estudiante`` y \</span>
+<span class="sd">        ``Vista.consultar_estudiante()``, que luego colocaran cada elemento en\</span>
+<span class="sd">         sus posiciones dentro de la aplicacion en tkinter ,ademas de realizar\</span>
+<span class="sd">         la carga de datos en el arbol al abrir por primera vez la aplicacion \</span>
+<span class="sd">        utilizando ``Estudiante.cargar_arbol()``</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Estudiantes Universidad 2023&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colocar_arbol</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crear_borrar_curso</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cargar_estudiante</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">borrar_estudiante</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modificar_estudiante</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">consultar_estudiante</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Base</span><span class="p">()</span><span class="o">.</span><span class="n">tabla_existe</span><span class="p">():</span>
+            <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">cargar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span></div>
+
+    <span class="c1"># TREEVIEW</span>
+
+    <span class="n">tree</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Variable donde se guardara todos los datos relacionados al treeview(tabla)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Vista.colocar_arbol"><a class="viewcode-back" href="../view.html#view.Vista.colocar_arbol">[documentos]</a>    <span class="k">def</span> <span class="nf">colocar_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca el treeview(tabla) en su respectiva posicion dentro de la</span>
+<span class="sd">        aplicacion en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">tree</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;headings&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+        <span class="n">tree</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;DNI&quot;</span><span class="p">,</span> <span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;apellido&quot;</span><span class="p">,</span> <span class="s2">&quot;nacimiento&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;DNI&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">minwidth</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">minwidth</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;apellido&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">minwidth</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;nacimiento&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">minwidth</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+        <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;DNI&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;DNI&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;apellido&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Apellido&quot;</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;nacimiento&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nacimiento&quot;</span><span class="p">)</span>
+
+        <span class="n">tree</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                  <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># CREAR/BORRAR CURSO</span>
+
+<div class="viewcode-block" id="Vista.crear_borrar_curso"><a class="viewcode-back" href="../view.html#view.Vista.crear_borrar_curso">[documentos]</a>    <span class="k">def</span> <span class="nf">crear_borrar_curso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca los botones de **Crear curso** y **Borrar curso** en \</span>
+<span class="sd">        su respectiva posicion dentro de la aplicacion en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nuevo_c</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nuevo curso&quot;</span><span class="p">,</span>
+                         <span class="n">command</span><span class="o">=</span><span class="n">Base</span><span class="p">()</span><span class="o">.</span><span class="n">crear_tabla</span><span class="p">)</span>
+        <span class="n">nuevo_c</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">borrar_c</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Borrar curso&quot;</span><span class="p">,</span>
+                          <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Base</span><span class="p">()</span><span class="o">.</span><span class="n">borrar_tabla</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span>
+        <span class="n">borrar_c</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+    <span class="c1"># CARGAR ESTUDIANTE</span>
+
+<div class="viewcode-block" id="Vista.borrar_info"><a class="viewcode-back" href="../view.html#view.Vista.borrar_info">[documentos]</a>    <span class="k">def</span> <span class="nf">borrar_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Borra la informacion mostrada sobre el formato de los datos que se \</span>
+<span class="sd">        debe respetar en los campos de DNI, nombre, apellido y Nacimiento \</span>
+<span class="sd">        al hacer click sobre cada uno de ellos</span>
+
+<span class="sd">        :param info: Nombre del campo al cual se le borrara la informacion: \</span>
+<span class="sd">        dni_entry, nombre_entry, apellido_entry o nac_entry</span>
+<span class="sd">        :type info: Entry(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Vista.cargar_estudiante"><a class="viewcode-back" href="../view.html#view.Vista.cargar_estudiante">[documentos]</a>    <span class="k">def</span> <span class="nf">cargar_estudiante</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca el boton de **Cargar** junto con los Labels y campos de \</span>
+<span class="sd">        entrada(Entry) en sus respectivas posiciones dentro de la aplicacion \</span>
+<span class="sd">        en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dni_valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">nombre_valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">apellido_valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">nac_valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+
+        <span class="n">cargar</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Cargar estudiante al curso&quot;</span><span class="p">)</span>
+        <span class="n">cargar</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+        <span class="n">carga_dni</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;DNI&quot;</span><span class="p">)</span>
+        <span class="n">carga_nombre</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">)</span>
+        <span class="n">carga_apellido</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Apellido&quot;</span><span class="p">)</span>
+        <span class="n">carga_nac</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Fecha de Nacimiento&quot;</span><span class="p">)</span>
+
+        <span class="n">carga_dni</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">carga_nombre</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">carga_apellido</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">carga_nac</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+        <span class="n">dni_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">dni_valor</span><span class="p">)</span>
+        <span class="n">nombre_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">nombre_valor</span><span class="p">)</span>
+        <span class="n">apellido_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">apellido_valor</span><span class="p">)</span>
+        <span class="n">nac_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">nac_valor</span><span class="p">)</span>
+
+        <span class="n">dni_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;123456789&quot;</span><span class="p">)</span>
+        <span class="n">dni_entry</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;FocusIn&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">borrar_info</span><span class="p">(</span><span class="n">dni_entry</span><span class="p">))</span>
+
+        <span class="n">nombre_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Nombre&quot;</span><span class="p">)</span>
+        <span class="n">nombre_entry</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;FocusIn&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">borrar_info</span><span class="p">(</span><span class="n">nombre_entry</span><span class="p">))</span>
+
+        <span class="n">apellido_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Apellido&quot;</span><span class="p">)</span>
+        <span class="n">apellido_entry</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;FocusIn&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">borrar_info</span><span class="p">(</span><span class="n">apellido_entry</span><span class="p">))</span>
+
+        <span class="n">nac_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;DD/MM/AAAA&quot;</span><span class="p">)</span>
+        <span class="n">nac_entry</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;FocusIn&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">:</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">borrar_info</span><span class="p">(</span><span class="n">nac_entry</span><span class="p">))</span>
+
+        <span class="n">dni_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">nombre_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">apellido_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">nac_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># CARGAR ESTUDIANTE (BOTON)</span>
+
+        <span class="n">cargar_boton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Cargar&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                              <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">insertar_alumno</span>
+                              <span class="p">(</span><span class="n">dni_valor</span><span class="p">,</span> <span class="n">nombre_valor</span><span class="p">,</span>
+                               <span class="n">apellido_valor</span><span class="p">,</span> <span class="n">nac_valor</span><span class="p">,</span> <span class="n">tree</span><span class="p">))</span>
+        <span class="n">cargar_boton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></div>
+
+    <span class="c1"># BORRAR ESTUDIANTE</span>
+
+<div class="viewcode-block" id="Vista.borrar_estudiante"><a class="viewcode-back" href="../view.html#view.Vista.borrar_estudiante">[documentos]</a>    <span class="k">def</span> <span class="nf">borrar_estudiante</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca el boton de **Borrar** en sus respectiva posicion dentro \</span>
+<span class="sd">        de la aplicacion en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">borrar_boton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Borrar&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span>
+                              <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">borrar_alumno</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span>
+        <span class="n">borrar_boton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+    <span class="c1"># MODIFICAR ESTUDIANTE</span>
+
+<div class="viewcode-block" id="Vista.modificar_estudiante"><a class="viewcode-back" href="../view.html#view.Vista.modificar_estudiante">[documentos]</a>    <span class="k">def</span> <span class="nf">modificar_estudiante</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca el boton de **Moficar** junto con los Labels, campos de \</span>
+<span class="sd">        entrada(Entry) y Botones en sus respectivas posiciones dentro de \</span>
+<span class="sd">        la aplicacion en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">modif_opc</span> <span class="o">=</span> <span class="n">IntVar</span><span class="p">()</span>
+        <span class="n">valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+
+        <span class="n">modif</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Modificar datos&quot;</span><span class="p">)</span>
+        <span class="n">modif</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+        <span class="n">opc_dni</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;DNI&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">modif_opc</span><span class="p">)</span>
+        <span class="n">opc_dni</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
+        <span class="n">opc_nombre</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                 <span class="n">variable</span><span class="o">=</span><span class="n">modif_opc</span><span class="p">)</span>
+        <span class="n">opc_nombre</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">opc_apellido</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                   <span class="n">variable</span><span class="o">=</span><span class="n">modif_opc</span><span class="p">)</span>
+        <span class="n">opc_apellido</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">opc_nac</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Fecha de Nacimiento&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                              <span class="n">variable</span><span class="o">=</span><span class="n">modif_opc</span><span class="p">)</span>
+        <span class="n">opc_nac</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+        <span class="n">nuevo_val</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nuevo Valor&quot;</span><span class="p">)</span>
+        <span class="n">nuevo_val</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">nuevo_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">valor</span><span class="p">)</span>
+        <span class="n">nuevo_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+        <span class="c1"># MODIFICAR (BOTON)</span>
+
+        <span class="n">modif_boton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Modificar&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">modificar_alumno</span>
+                             <span class="p">(</span><span class="n">modif_opc</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">tree</span><span class="p">))</span>
+        <span class="n">modif_boton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></div>
+
+    <span class="c1"># CONSULTAR ESTUDIANTE</span>
+
+<div class="viewcode-block" id="Vista.consultar_estudiante"><a class="viewcode-back" href="../view.html#view.Vista.consultar_estudiante">[documentos]</a>    <span class="k">def</span> <span class="nf">consultar_estudiante</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coloca el boton de **Consultar** junto con los Labels, campos de \</span>
+<span class="sd">        entrada(Entry) y Botones en sus respectivas posiciones dentro de \</span>
+<span class="sd">        la aplicacion en tkinter</span>
+
+<span class="sd">        :type main: Tk(tkinter)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">c_valor</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">consul_opc</span> <span class="o">=</span> <span class="n">IntVar</span><span class="p">()</span>
+
+        <span class="n">consul</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Consultar por datos&quot;</span><span class="p">)</span>
+        <span class="n">consul</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+        <span class="n">c_opc_dni</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;DNI&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">consul_opc</span><span class="p">)</span>
+        <span class="n">c_opc_dni</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
+        <span class="n">c_opc_nombre</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                   <span class="n">variable</span><span class="o">=</span><span class="n">consul_opc</span><span class="p">)</span>
+        <span class="n">c_opc_nombre</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">c_opc_apellido</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Apellido&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                     <span class="n">variable</span><span class="o">=</span><span class="n">consul_opc</span><span class="p">)</span>
+        <span class="n">c_opc_apellido</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">c_opc_nac</span> <span class="o">=</span> <span class="n">Radiobutton</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Fecha de Nacimiento&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                                <span class="n">variable</span><span class="o">=</span><span class="n">consul_opc</span><span class="p">)</span>
+        <span class="n">c_opc_nac</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+        <span class="n">consul_val</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Dato a consultar:&quot;</span><span class="p">)</span>
+        <span class="n">consul_val</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">consul_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="n">c_valor</span><span class="p">)</span>
+        <span class="n">consul_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+        <span class="c1"># CONSULTAR (BOTON)</span>
+
+        <span class="n">modif_boton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Consultar&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">consultar_alumno</span>
+                             <span class="p">(</span><span class="n">consul_opc</span><span class="p">,</span> <span class="n">c_valor</span><span class="p">))</span>
+        <span class="n">modif_boton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Sebastian Orellana.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -10,10 +10,25 @@ from db import Base
 
 
 class Vista():
+    """
+    Clase que almacena todos los metodos y variables necesarios para colocar \
+    todos los elementos en sus posiciones dentro de la aplicacion en tkinter
+    """
     def __init__(self):
         pass
 
     def principal(self, main):
+        """
+        Metodo que engloba e invoca a los metodos ``Vista.colocar_arbol()``, \
+        ``Vista.crear_borrar_curso``, ``Vista.cargar_estudiante``,\
+        ``Vista.borrar_estudiante(), ``Vista.modificar_estudiante`` y \
+        ``Vista.consultar_estudiante()``, que luego colocaran cada elemento en\
+         sus posiciones dentro de la aplicacion en tkinter ,ademas de realizar\
+         la carga de datos en el arbol al abrir por primera vez la aplicacion \
+        utilizando ``Estudiante.cargar_arbol()``
+
+        :type main: Tk(tkinter)
+        """
         main.title("Estudiantes Universidad 2023")
         self.colocar_arbol(main)
         self.crear_borrar_curso(main)
@@ -27,8 +42,17 @@ class Vista():
     # TREEVIEW
 
     tree = None
+    """
+    Variable donde se guardara todos los datos relacionados al treeview(tabla)
+    """
 
     def colocar_arbol(self, main):
+        """
+        Coloca el treeview(tabla) en su respectiva posicion dentro de la
+        aplicacion en tkinter
+
+        :type main: Tk(tkinter)
+        """
         global tree
         tree = ttk.Treeview(main, show="headings", height=25)
         tree["columns"] = ("DNI", "nombre", "apellido", "nacimiento")
@@ -48,6 +72,12 @@ class Vista():
     # CREAR/BORRAR CURSO
 
     def crear_borrar_curso(self, main):
+        """
+        Coloca los botones de **Crear curso** y **Borrar curso** en \
+        su respectiva posicion dentro de la aplicacion en tkinter
+
+        :type main: Tk(tkinter)
+        """
         nuevo_c = Button(main, text="Nuevo curso",
                          command=Base().crear_tabla)
         nuevo_c.grid(row=0, columnspan=2, sticky="s", pady=10)
@@ -59,9 +89,25 @@ class Vista():
     # CARGAR ESTUDIANTE
 
     def borrar_info(self, info):
+        """
+        Borra la informacion mostrada sobre el formato de los datos que se \
+        debe respetar en los campos de DNI, nombre, apellido y Nacimiento \
+        al hacer click sobre cada uno de ellos
+
+        :param info: Nombre del campo al cual se le borrara la informacion: \
+        dni_entry, nombre_entry, apellido_entry o nac_entry
+        :type info: Entry(tkinter)
+        """
         info.delete(0, "end")
 
     def cargar_estudiante(self, main):
+        """
+        Coloca el boton de **Cargar** junto con los Labels y campos de \
+        entrada(Entry) en sus respectivas posiciones dentro de la aplicacion \
+        en tkinter
+
+        :type main: Tk(tkinter)
+        """
         dni_valor = StringVar()
         nombre_valor = StringVar()
         apellido_valor = StringVar()
@@ -117,6 +163,12 @@ class Vista():
     # BORRAR ESTUDIANTE
 
     def borrar_estudiante(self, main):
+        """
+        Coloca el boton de **Borrar** en sus respectiva posicion dentro \
+        de la aplicacion en tkinter
+
+        :type main: Tk(tkinter)
+        """
         borrar_boton = Button(main, text="Borrar", width=15, command=lambda:
                               Estudiante().borrar_alumno(tree))
         borrar_boton.grid(row=9, columnspan=2)
@@ -124,6 +176,13 @@ class Vista():
     # MODIFICAR ESTUDIANTE
 
     def modificar_estudiante(self, main):
+        """
+        Coloca el boton de **Moficar** junto con los Labels, campos de \
+        entrada(Entry) y Botones en sus respectivas posiciones dentro de \
+        la aplicacion en tkinter
+
+        :type main: Tk(tkinter)
+        """
         modif_opc = IntVar()
         valor = StringVar()
 
@@ -157,6 +216,13 @@ class Vista():
     # CONSULTAR ESTUDIANTE
 
     def consultar_estudiante(self, main):
+        """
+        Coloca el boton de **Consultar** junto con los Labels, campos de \
+        entrada(Entry) y Botones en sus respectivas posiciones dentro de \
+        la aplicacion en tkinter
+
+        :type main: Tk(tkinter)
+        """
         c_valor = StringVar()
         consul_opc = IntVar()
 

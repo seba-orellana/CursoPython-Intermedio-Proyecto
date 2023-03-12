@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>regex module &mdash; documentación de Proyecto Nivel Intermedio - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="view module" href="view.html" />
+    <link rel="prev" title="model module" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Proyecto Nivel Intermedio
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controller.html">controller module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">regex module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#regex.Reg"><code class="docutils literal notranslate"><span class="pre">Reg</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_dni"><code class="docutils literal notranslate"><span class="pre">Reg.validar_dni()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_fecha"><code class="docutils literal notranslate"><span class="pre">Reg.validar_fecha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_nombre_apellido"><code class="docutils literal notranslate"><span class="pre">Reg.validar_nombre_apellido()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">view module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Proyecto Nivel Intermedio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">regex module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/regex.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-regex">
+<span id="regex-module"></span><h1>regex module<a class="headerlink" href="#module-regex" title="Enlace permanente a este encabezado"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="regex.Reg">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">regex.</span></span><span class="sig-name descname"><span class="pre">Reg</span></span><a class="reference internal" href="_modules/regex.html#Reg"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase utilizada para realizar toda la validacion de datos que el usuario     ingresa en los distintos campos de la aplicacion</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="regex.Reg.validar_dni">
+<span class="sig-name descname"><span class="pre">validar_dni</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_dni"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_dni" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Se verifica si el DNI ingresado cumple uno de los siguientes         formatos:</p>
+<ul class="simple">
+<li><p>7 numeros sin ningun caracter especial         (Ej: puntos, comas o guiones)</p></li>
+<li><p>8 numeros sin ningun caracter especial         (Ej: puntos, comas o guiones)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>Str</em>) – Cadena que contiene el dni a verificar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="regex.Reg.validar_fecha">
+<span class="sig-name descname"><span class="pre">validar_fecha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_fecha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_fecha" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Se verifica si la fecha ingresada cumple el formato <strong>DD/MM/AAAA</strong></p>
+<p>Donde:</p>
+<p>DD: Dias del año, cuyo valor varia entre 01-31</p>
+<p>MM: Meses del año, cuyo valor varia entre 01-12</p>
+<p>AAAA: Año de nacimiento, cuyo valor varia entre 1900-2019</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>Str</em>) – Cadena que contiene la fecha de nacimiento a verificar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="regex.Reg.validar_nombre_apellido">
+<span class="sig-name descname"><span class="pre">validar_nombre_apellido</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_nombre_apellido"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_nombre_apellido" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Se verifica si el nombre o el apellido ingresado cumple las         siguientes condiciones:</p>
+<ul class="simple">
+<li><p>Cadena de entre un y quince letras del alfabeto [1 - 15]</p></li>
+<li><p>Cadena sin ningun caracter especial (Ej: puntos, comas o guiones)</p></li>
+<li><p>Sin distincion entre mayusculas y minusculas</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>Str</em>) – Cadena que contiene el nombre o apellido a verificar</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="model.html" class="btn btn-neutral float-left" title="model module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="view.html" class="btn btn-neutral float-right" title="view module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Sebastian Orellana.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

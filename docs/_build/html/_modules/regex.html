@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>regex &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controller.html">controller module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db.html">db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex.html">regex module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../view.html">view module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">regex</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para regex</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># REGEX</span>
+
+<span class="c1"># FORMATO PARA VALIDAR LOS DATOS:</span>
+
+<span class="c1"># DNI: 7 U 8 DIGITOS SIN PUNTOS</span>
+<span class="c1"># NOMBRE: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS</span>
+<span class="c1"># APELLIDO: DE 1 A 15 LETRAS MAYUSCULAS O MINUSCULAS</span>
+<span class="c1"># FECHA: DD/MM/AAAA</span>
+<span class="c1"># DD=[01-31]</span>
+<span class="c1"># MM=[01-12]</span>
+<span class="c1"># AAAA=[1900-2019]</span>
+
+
+<div class="viewcode-block" id="Reg"><a class="viewcode-back" href="../regex.html#regex.Reg">[documentos]</a><span class="k">class</span> <span class="nc">Reg</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase utilizada para realizar toda la validacion de datos que el usuario \</span>
+<span class="sd">    ingresa en los distintos campos de la aplicacion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Reg.validar_fecha"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_fecha">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_fecha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se verifica si la fecha ingresada cumple el formato **DD/MM/AAAA** \n</span>
+<span class="sd">        Donde: \n</span>
+<span class="sd">        DD: Dias del año, cuyo valor varia entre 01-31 \n</span>
+<span class="sd">        MM: Meses del año, cuyo valor varia entre 01-12 \n</span>
+<span class="sd">        AAAA: Año de nacimiento, cuyo valor varia entre 1900-2019 \n</span>
+
+<span class="sd">        :param string: Cadena que contiene la fecha de nacimiento a verificar</span>
+<span class="sd">        :type string: Str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">patron</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;^(0[1-9]|1[0-9]|2[0-9]|3[0-1])&quot;</span>
+                  <span class="s2">&quot;(/)(0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-1][0-9])$&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Reg.validar_dni"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_dni">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_dni</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se verifica si el DNI ingresado cumple uno de los siguientes \</span>
+<span class="sd">        formatos: \n</span>
+<span class="sd">        * 7 numeros sin ningun caracter especial \</span>
+<span class="sd">        (Ej: puntos, comas o guiones) \n</span>
+<span class="sd">        * 8 numeros sin ningun caracter especial \</span>
+<span class="sd">        (Ej: puntos, comas o guiones) \n</span>
+
+<span class="sd">        :param string: Cadena que contiene el dni a verificar</span>
+<span class="sd">        :type string: Str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">patron</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{7,8}$&#39;</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Reg.validar_nombre_apellido"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_nombre_apellido">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_nombre_apellido</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se verifica si el nombre o el apellido ingresado cumple las \</span>
+<span class="sd">        siguientes condiciones: \n</span>
+<span class="sd">        * Cadena de entre un y quince letras del alfabeto [1 - 15] \n</span>
+<span class="sd">        * Cadena sin ningun caracter especial (Ej: puntos, comas o guiones) \n</span>
+<span class="sd">        * Sin distincion entre mayusculas y minusculas \n</span>
+
+<span class="sd">        :param string: Cadena que contiene el nombre o apellido a verificar</span>
+<span class="sd">        :type string: Str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">patron</span> <span class="o">=</span> <span class="s2">&quot;^[A-Za-z]{1,15}$&quot;</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Sebastian Orellana.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

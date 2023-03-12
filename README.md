@@ -33,8 +33,11 @@ Proyecto del curso de python nivel intermedio UTN 2023
 
 *Agregadas leyendas a las Entries de la carga de datos
 
-FALTA POR HACER:  
+12/3/2023
 
--Verificar try except  
+*Agregada verificaciones de try - except  
+*Documentado el funcionamiento de la aplicacion utilizando Sphinx
+
+FALTA POR HACER:  
+ 
 -Testeo general de la aplicacion  
--Documentacion con sphinx

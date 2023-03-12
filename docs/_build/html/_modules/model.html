@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>model &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controller.html">controller module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db.html">db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex.html">regex module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../view.html">view module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">model</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para model</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tkinter.messagebox</span> <span class="kn">import</span> <span class="n">showerror</span><span class="p">,</span> <span class="n">showinfo</span>
+<span class="kn">from</span> <span class="nn">regex</span> <span class="kn">import</span> <span class="n">Reg</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+
+<div class="viewcode-block" id="Estudiante"><a class="viewcode-back" href="../model.html#model.Estudiante">[documentos]</a><span class="k">class</span> <span class="nc">Estudiante</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clase la cual contiene todos los metodos utilizados para \</span>
+<span class="sd">    realizar el C.R.U.D. junto con los metodos utilizados para\</span>
+<span class="sd">     operar el treeview(tabla)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># MOSTRAR/BORRAR DATOS (ARBOL)</span>
+
+<div class="viewcode-block" id="Estudiante.limpiar_arbol"><a class="viewcode-back" href="../model.html#model.Estudiante.limpiar_arbol">[documentos]</a>    <span class="k">def</span> <span class="nf">limpiar_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Limpia todos los valores del treeview(tabla) dentro de la \</span>
+<span class="sd">        aplicacion en tkinter.</span>
+
+<span class="sd">        :param tree: Variable donde se guarda la treeview(tabla).</span>
+<span class="sd">        :type tree: Treeview</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Estudiante.cargar_arbol"><a class="viewcode-back" href="../model.html#model.Estudiante.cargar_arbol">[documentos]</a>    <span class="k">def</span> <span class="nf">cargar_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se realiza una carga de los datos desde la base de datos en SQL\</span>
+<span class="sd">        al treeview(tabla) dentro de la aplicacion en tkinter.</span>
+
+<span class="sd">        :param tree: Variable donde se guarda la treeview(tabla).</span>
+<span class="sd">        :type tree: Treeview</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;estudiantes_curso_2023.db&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar a la base de datos&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">limpiar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM curso&quot;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+            <span class="n">datos</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="p">)):</span>
+                <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
+                                               <span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+                                               <span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]),</span>
+                                               <span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">])))</span></div>
+
+    <span class="c1"># ALTA</span>
+
+<div class="viewcode-block" id="Estudiante.crear_alumno"><a class="viewcode-back" href="../model.html#model.Estudiante.crear_alumno">[documentos]</a>    <span class="k">def</span> <span class="nf">crear_alumno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dni</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">nacimiento</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se inserta un alumno a la base de datos dentro de SQL</span>
+
+<span class="sd">        :param dni: Numero de documento del alumno a cargar.</span>
+<span class="sd">        :type dni: Int</span>
+
+<span class="sd">        :param nombre: Nombre del estudiante a cargar</span>
+<span class="sd">        :type nombre: Str</span>
+
+<span class="sd">        :param apellido: Apellido del estudiante a cargar</span>
+<span class="sd">        :type apellido: Str</span>
+
+<span class="sd">        :param nacimiento: Fecha de nacimiento del estudiante a cargar</span>
+<span class="sd">        :type nacimiento: Str</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;estudiantes_curso_2023.db&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar a la base de datos&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_fecha</span><span class="p">(</span><span class="n">nacimiento</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+                <span class="ow">and</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_dni</span><span class="p">(</span><span class="n">dni</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+                <span class="ow">and</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">nombre</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+                    <span class="ow">and</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">apellido</span><span class="o">.</span><span class="n">get</span><span class="p">())):</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">dni</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">nombre</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">apellido</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+                        <span class="n">nacimiento</span><span class="o">.</span><span class="n">get</span><span class="p">(),)</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO curso(dni, nombre, apellido, nacimiento)</span><span class="se">\</span>
+<span class="s2">                VALUES (?,?,?,?)&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al cargar estudiante&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;Verifique el formato de los datos cargados&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Estudiante.insertar_alumno"><a class="viewcode-back" href="../model.html#model.Estudiante.insertar_alumno">[documentos]</a>    <span class="k">def</span> <span class="nf">insertar_alumno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dni</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">nacimiento</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se realiza la carga del alumno utilizando ``Estudiante.crear_alumno()``</span>
+<span class="sd">        .Posteriormente se actualiza la treeview(tabla) con los nuevos datos \</span>
+<span class="sd">        utilizando ``Estudiante.cargar_arbol()``</span>
+
+<span class="sd">        :param dni: Numero de documento del alumno a cargar.</span>
+<span class="sd">        :type dni: Int</span>
+
+<span class="sd">        :param nombre: Nombre del estudiante a cargar</span>
+<span class="sd">        :type nombre: Str</span>
+
+<span class="sd">        :param apellido: Apellido del estudiante a cargar</span>
+<span class="sd">        :type apellido: Str</span>
+
+<span class="sd">        :param nacimiento: Fecha de nacimiento del estudiante a cargar</span>
+<span class="sd">        :type nacimiento: Str</span>
+
+<span class="sd">        :param tree: Variable donde se guarda la treeview(tabla).</span>
+<span class="sd">        :type tree: Treeview</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crear_alumno</span><span class="p">(</span><span class="n">dni</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">,</span> <span class="n">nacimiento</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cargar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span></div>
+
+    <span class="c1"># BAJA</span>
+
+<div class="viewcode-block" id="Estudiante.borrar_alumno"><a class="viewcode-back" href="../model.html#model.Estudiante.borrar_alumno">[documentos]</a>    <span class="k">def</span> <span class="nf">borrar_alumno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se elimina el alumno de la base de datos de SQL y posteriormente \</span>
+<span class="sd">        se actualiza la treeview(tabla) utilizando \</span>
+<span class="sd">        ``Estudiante.cargar_arbol()``</span>
+
+<span class="sd">        :param tree: Variable donde se guarda la treeview(tabla).</span>
+<span class="sd">        :type tree: Treeview</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;estudiantes_curso_2023.db&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar a la base de datos&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="n">valor</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">elem</span><span class="p">)[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM curso WHERE dni = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cargar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span></div>
+
+    <span class="c1"># CONSULTA</span>
+
+<div class="viewcode-block" id="Estudiante.consultar_alumno"><a class="viewcode-back" href="../model.html#model.Estudiante.consultar_alumno">[documentos]</a>    <span class="k">def</span> <span class="nf">consultar_alumno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opc</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se consulta dentro de la base de datos si es que un alumno existe.</span>
+<span class="sd">        En caso de existir, se muestran todos los datos. Caso contrario, se</span>
+<span class="sd">        muestra un mensaje de error indicando que no existe el estudiante</span>
+<span class="sd">        buscado</span>
+
+<span class="sd">        :param opc: Opcion escogida para buscar por el usuario.</span>
+<span class="sd">        :type opc: IntVar(tkinter)</span>
+
+<span class="sd">        :param val: Valor a consultar de la opcion escogida</span>
+<span class="sd">        :type val: StringVar(tkinter)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;estudiantes_curso_2023.db&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar a la base de datos&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">opcion</span> <span class="o">=</span> <span class="n">opc</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">valor</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+            <span class="k">match</span> <span class="n">opcion</span><span class="p">:</span>
+                <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_dni</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM curso WHERE dni = &quot;</span> <span class="o">+</span> <span class="n">valor</span>
+                        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                        <span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al buscar&quot;</span><span class="p">,</span> <span class="s2">&quot;No hay estudiante</span><span class="se">\</span>
+<span class="s2">                                con el DNI ingresado&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Resultado de la busqueda&quot;</span><span class="p">,</span> <span class="s2">&quot;DNI: &quot;</span>
+                                     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nombre: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Apellido: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fecha de Nacimiento: &quot;</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al consultar por DNI&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Verifique el formato del dato ingresado&quot;</span><span class="p">)</span>
+                <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM curso WHERE nombre = &#39;&quot;</span> \
+                              <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+                        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                        <span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al buscar&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;No hay estudiante con el nombre </span><span class="se">\</span>
+<span class="s2">                                       ingresado&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Resultado de la busqueda&quot;</span><span class="p">,</span> <span class="s2">&quot;DNI: &quot;</span>
+                                     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nombre: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Apellido: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fecha de Nacimiento: &quot;</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al consultar por Nombre&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Verifique el formato del dato ingresado&quot;</span><span class="p">)</span>
+                <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                        <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT * FROM curso WHERE apellido = &#39;&quot;</span>
+                               <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+                        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                        <span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al buscar&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;No hay estudiante con el&quot;</span>
+                                      <span class="o">+</span> <span class="s2">&quot;apellido ingresado&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Resultado de la busqueda&quot;</span><span class="p">,</span> <span class="s2">&quot;DNI: &quot;</span>
+                                     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nombre: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Apellido: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fecha de Nacimiento: &quot;</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al consultar por Apellido&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Verifique el formato del dato ingresado&quot;</span><span class="p">)</span>
+                <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_fecha</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                        <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT * FROM curso WHERE nacimiento = &#39;&quot;</span>
+                               <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+                        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                        <span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al buscar&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;No hay estudiante con la fecha&quot;</span>
+                                      <span class="o">+</span> <span class="s2">&quot; de nacimiento ingresada&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Resultado de la busqueda&quot;</span><span class="p">,</span> <span class="s2">&quot;DNI: &quot;</span>
+                                     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nombre: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Apellido: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span>
+                                     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fecha de Nacimiento: &quot;</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al consultar por Fecha de Nacimiento&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Verifique el formato del dato ingresado&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># MODIFICAR</span>
+
+<div class="viewcode-block" id="Estudiante.modificar_alumno"><a class="viewcode-back" href="../model.html#model.Estudiante.modificar_alumno">[documentos]</a>    <span class="k">def</span> <span class="nf">modificar_alumno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opc</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">tree</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Se modifica el estudiante seleccionado en la treeview(tabla), \</span>
+<span class="sd">        asignandole a la opcion(opc) escogida el nuevo valor(val)</span>
+
+<span class="sd">        :param opc: Opcion escogida para modificar por el usuario.</span>
+<span class="sd">        :type opc: IntVar(tkinter)</span>
+
+<span class="sd">        :param val: Valor nuevo que se le asignara al dato a modificar</span>
+<span class="sd">        :type val: StringVar(tkinter)</span>
+
+<span class="sd">        :param tree: Variable donde se guarda la treeview(tabla).</span>
+<span class="sd">        :type tree: Treeview</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;estudiantes_curso_2023.db&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar a la base de datos&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">opcion</span> <span class="o">=</span> <span class="n">opc</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">valor</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">val_a_modificar</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">elem</span><span class="p">)[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error, No se selecciono valor a modificar&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">match</span> <span class="n">opcion</span><span class="p">:</span>
+                    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_dni</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                            <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;UPDATE curso SET dni = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39; WHERE dni = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">val_a_modificar</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+                            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al modificar DNI&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Verifique el formato del dato </span><span class="se">\</span>
+<span class="s2">                                      ingresado&quot;</span><span class="p">)</span>
+                    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                            <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;UPDATE curso SET nombre = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39; WHERE dni = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">val_a_modificar</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+                            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al modificar Nombre&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Verifique el formato del dato </span><span class="se">\</span>
+<span class="s2">                                      ingresado&quot;</span><span class="p">)</span>
+                    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_nombre_apellido</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                            <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;UPDATE curso SET apellido = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39; WHERE dni = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">val_a_modificar</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+                            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al modificar Apellido&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Verifique el formato del dato </span><span class="se">\</span>
+<span class="s2">                                      ingresado&quot;</span><span class="p">)</span>
+                    <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">Reg</span><span class="p">()</span><span class="o">.</span><span class="n">validar_fecha</span><span class="p">(</span><span class="n">valor</span><span class="p">):</span>
+                            <span class="n">sql</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;UPDATE curso SET nacimiento = &#39;&quot;</span>
+                                   <span class="o">+</span> <span class="n">valor</span> <span class="o">+</span> <span class="s2">&quot;&#39; WHERE dni = &quot;</span>
+                                   <span class="o">+</span> <span class="n">val_a_modificar</span><span class="p">)</span>
+                            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+                            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error al modificar la Fecha de </span><span class="se">\</span>
+<span class="s2">                                      Nacimiento&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Verifique el formato del dato </span><span class="se">\</span>
+<span class="s2">                                      ingresado&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cargar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Sebastian Orellana.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

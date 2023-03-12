@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>view module &mdash; documentación de Proyecto Nivel Intermedio - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="regex module" href="regex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Proyecto Nivel Intermedio
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controller.html">controller module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">regex module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">view module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#view.Vista"><code class="docutils literal notranslate"><span class="pre">Vista</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.borrar_estudiante"><code class="docutils literal notranslate"><span class="pre">Vista.borrar_estudiante()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.borrar_info"><code class="docutils literal notranslate"><span class="pre">Vista.borrar_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.cargar_estudiante"><code class="docutils literal notranslate"><span class="pre">Vista.cargar_estudiante()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.colocar_arbol"><code class="docutils literal notranslate"><span class="pre">Vista.colocar_arbol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.consultar_estudiante"><code class="docutils literal notranslate"><span class="pre">Vista.consultar_estudiante()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.crear_borrar_curso"><code class="docutils literal notranslate"><span class="pre">Vista.crear_borrar_curso()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.modificar_estudiante"><code class="docutils literal notranslate"><span class="pre">Vista.modificar_estudiante()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.principal"><code class="docutils literal notranslate"><span class="pre">Vista.principal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view.Vista.tree"><code class="docutils literal notranslate"><span class="pre">Vista.tree</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Proyecto Nivel Intermedio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">view module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/view.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-view">
+<span id="view-module"></span><h1>view module<a class="headerlink" href="#module-view" title="Enlace permanente a este encabezado"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="view.Vista">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">view.</span></span><span class="sig-name descname"><span class="pre">Vista</span></span><a class="reference internal" href="_modules/view.html#Vista"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que almacena todos los metodos y variables necesarios para colocar     todos los elementos en sus posiciones dentro de la aplicacion en tkinter</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.borrar_estudiante">
+<span class="sig-name descname"><span class="pre">borrar_estudiante</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.borrar_estudiante"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.borrar_estudiante" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca el boton de <strong>Borrar</strong> en sus respectiva posicion dentro         de la aplicacion en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.borrar_info">
+<span class="sig-name descname"><span class="pre">borrar_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.borrar_info"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.borrar_info" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Borra la informacion mostrada sobre el formato de los datos que se         debe respetar en los campos de DNI, nombre, apellido y Nacimiento         al hacer click sobre cada uno de ellos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>info</strong> (<em>Entry</em><em>(</em><em>tkinter</em><em>)</em>) – Nombre del campo al cual se le borrara la informacion:         dni_entry, nombre_entry, apellido_entry o nac_entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.cargar_estudiante">
+<span class="sig-name descname"><span class="pre">cargar_estudiante</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.cargar_estudiante"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.cargar_estudiante" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca el boton de <strong>Cargar</strong> junto con los Labels y campos de         entrada(Entry) en sus respectivas posiciones dentro de la aplicacion         en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.colocar_arbol">
+<span class="sig-name descname"><span class="pre">colocar_arbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.colocar_arbol"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.colocar_arbol" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca el treeview(tabla) en su respectiva posicion dentro de la
+aplicacion en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.consultar_estudiante">
+<span class="sig-name descname"><span class="pre">consultar_estudiante</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.consultar_estudiante"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.consultar_estudiante" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca el boton de <strong>Consultar</strong> junto con los Labels, campos de         entrada(Entry) y Botones en sus respectivas posiciones dentro de         la aplicacion en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.crear_borrar_curso">
+<span class="sig-name descname"><span class="pre">crear_borrar_curso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.crear_borrar_curso"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.crear_borrar_curso" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca los botones de <strong>Crear curso</strong> y <strong>Borrar curso</strong> en         su respectiva posicion dentro de la aplicacion en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.modificar_estudiante">
+<span class="sig-name descname"><span class="pre">modificar_estudiante</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.modificar_estudiante"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.modificar_estudiante" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Coloca el boton de <strong>Moficar</strong> junto con los Labels, campos de         entrada(Entry) y Botones en sus respectivas posiciones dentro de         la aplicacion en tkinter</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="view.Vista.principal">
+<span class="sig-name descname"><span class="pre">principal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/view.html#Vista.principal"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#view.Vista.principal" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Metodo que engloba e invoca a los metodos <code class="docutils literal notranslate"><span class="pre">Vista.colocar_arbol()</span></code>,         <code class="docutils literal notranslate"><span class="pre">Vista.crear_borrar_curso</span></code>, <code class="docutils literal notranslate"><span class="pre">Vista.cargar_estudiante</span></code>,        <code class="docutils literal notranslate"><span class="pre">Vista.borrar_estudiante(),</span> <span class="pre">``Vista.modificar_estudiante</span></code> y         <code class="docutils literal notranslate"><span class="pre">Vista.consultar_estudiante()</span></code>, que luego colocaran cada elemento en         sus posiciones dentro de la aplicacion en tkinter ,ademas de realizar         la carga de datos en el arbol al abrir por primera vez la aplicacion         utilizando <code class="docutils literal notranslate"><span class="pre">Estudiante.cargar_arbol()</span></code></p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="view.Vista.tree">
+<span class="sig-name descname"><span class="pre">tree</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#view.Vista.tree" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Variable donde se guardara todos los datos relacionados al treeview(tabla)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="regex.html" class="btn btn-neutral float-left" title="regex module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Sebastian Orellana.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
