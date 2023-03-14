@@ -1,7 +1,7 @@
-regex module
+verif module
 ============
 
-.. automodule:: regex
+.. automodule:: verif
    :members:
    :undoc-members:
    :show-inheritance:

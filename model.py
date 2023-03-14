@@ -1,5 +1,5 @@
 from tkinter.messagebox import showerror, showinfo
-from regex import Reg
+from verif import Reg
 import sqlite3
 
 

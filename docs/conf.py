@@ -5,11 +5,11 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
 import os
 import sys
+sys.path.insert(0, os.path.abspath('../'))
 
-project = 'Proyecto Nivel Intermedio'
+project = 'Proyecto-Nivel-Intermedio'
 copyright = '2023, Sebastian Orellana'
 author = 'Sebastian Orellana'
 
@@ -28,16 +28,13 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-sys.path.insert(0, os.path.abspath('../'))
-
-# ------------------------
 language = 'es'
 
-# --------------------------
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
 html_theme = 'sphinx_rtd_theme'
-
-# ------------------------
-
+html_static_path = ['_static']
 
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration

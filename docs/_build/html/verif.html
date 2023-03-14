@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>regex module &mdash; documentación de Proyecto Nivel Intermedio - 0.0.1</title>
+  <title>verif module &mdash; documentación de Proyecto-Nivel-Intermedio - 0.0.1</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Proyecto Nivel Intermedio
+            Proyecto-Nivel-Intermedio
           </a>
               <div class="version">
                 0.0.1
@@ -50,11 +50,11 @@
 <li class="toctree-l1"><a class="reference internal" href="controller.html">controller module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="db.html">db module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">regex module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#regex.Reg"><code class="docutils literal notranslate"><span class="pre">Reg</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_dni"><code class="docutils literal notranslate"><span class="pre">Reg.validar_dni()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_fecha"><code class="docutils literal notranslate"><span class="pre">Reg.validar_fecha()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#regex.Reg.validar_nombre_apellido"><code class="docutils literal notranslate"><span class="pre">Reg.validar_nombre_apellido()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">verif module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#verif.Reg"><code class="docutils literal notranslate"><span class="pre">Reg</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verif.Reg.validar_dni"><code class="docutils literal notranslate"><span class="pre">Reg.validar_dni()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verif.Reg.validar_fecha"><code class="docutils literal notranslate"><span class="pre">Reg.validar_fecha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verif.Reg.validar_nombre_apellido"><code class="docutils literal notranslate"><span class="pre">Reg.validar_nombre_apellido()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -68,7 +68,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Proyecto Nivel Intermedio</a>
+          <a href="index.html">Proyecto-Nivel-Intermedio</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -76,9 +76,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">regex module</li>
+      <li class="breadcrumb-item active">verif module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/regex.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+            <a href="_sources/verif.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
       </li>
   </ul>
   <hr/>
@@ -86,16 +86,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-regex">
-<span id="regex-module"></span><h1>regex module<a class="headerlink" href="#module-regex" title="Enlace permanente a este encabezado"></a></h1>
+  <section id="module-verif">
+<span id="verif-module"></span><h1>verif module<a class="headerlink" href="#module-verif" title="Enlace permanente a este encabezado"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="regex.Reg">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">regex.</span></span><span class="sig-name descname"><span class="pre">Reg</span></span><a class="reference internal" href="_modules/regex.html#Reg"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="verif.Reg">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">verif.</span></span><span class="sig-name descname"><span class="pre">Reg</span></span><a class="reference internal" href="_modules/verif.html#Reg"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verif.Reg" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Clase utilizada para realizar toda la validacion de datos que el usuario     ingresa en los distintos campos de la aplicacion</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="regex.Reg.validar_dni">
-<span class="sig-name descname"><span class="pre">validar_dni</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_dni"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_dni" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="verif.Reg.validar_dni">
+<span class="sig-name descname"><span class="pre">validar_dni</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/verif.html#Reg.validar_dni"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verif.Reg.validar_dni" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Se verifica si el DNI ingresado cumple uno de los siguientes         formatos:</p>
 <ul class="simple">
 <li><p>7 numeros sin ningun caracter especial         (Ej: puntos, comas o guiones)</p></li>
@@ -109,8 +109,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="regex.Reg.validar_fecha">
-<span class="sig-name descname"><span class="pre">validar_fecha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_fecha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_fecha" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="verif.Reg.validar_fecha">
+<span class="sig-name descname"><span class="pre">validar_fecha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/verif.html#Reg.validar_fecha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verif.Reg.validar_fecha" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Se verifica si la fecha ingresada cumple el formato <strong>DD/MM/AAAA</strong></p>
 <p>Donde:</p>
 <p>DD: Dias del año, cuyo valor varia entre 01-31</p>
@@ -124,8 +124,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="regex.Reg.validar_nombre_apellido">
-<span class="sig-name descname"><span class="pre">validar_nombre_apellido</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/regex.html#Reg.validar_nombre_apellido"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#regex.Reg.validar_nombre_apellido" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="verif.Reg.validar_nombre_apellido">
+<span class="sig-name descname"><span class="pre">validar_nombre_apellido</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/verif.html#Reg.validar_nombre_apellido"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verif.Reg.validar_nombre_apellido" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Se verifica si el nombre o el apellido ingresado cumple las         siguientes condiciones:</p>
 <ul class="simple">
 <li><p>Cadena de entre un y quince letras del alfabeto [1 - 15]</p></li>

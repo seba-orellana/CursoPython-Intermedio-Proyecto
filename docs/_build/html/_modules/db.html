@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>db &mdash; documentación de MiProyecto - 0.0.1</title>
+  <title>db &mdash; documentación de Proyecto-Nivel-Intermedio - 0.0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            MiProyecto
+            Proyecto-Nivel-Intermedio
           </a>
               <div class="version">
                 0.0.1
@@ -47,7 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../controller.html">controller module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../db.html">db module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model.html">model module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../regex.html">regex module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../verif.html">verif module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../view.html">view module</a></li>
 </ul>
 
@@ -57,7 +57,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MiProyecto</a>
+          <a href="../index.html">Proyecto-Nivel-Intermedio</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -78,6 +78,7 @@
   <h1>Código fuente para db</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 <span class="kn">from</span> <span class="nn">tkinter.messagebox</span> <span class="kn">import</span> <span class="n">showerror</span><span class="p">,</span> <span class="n">showinfo</span><span class="p">,</span> <span class="n">askyesno</span>
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Estudiante</span>
 
 
 <div class="viewcode-block" id="Base"><a class="viewcode-back" href="../db.html#db.Base">[documentos]</a><span class="k">class</span> <span class="nc">Base</span><span class="p">():</span>
@@ -142,7 +143,7 @@
                     <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;DROP TABLE curso&quot;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
                     <span class="n">showinfo</span><span class="p">(</span><span class="s2">&quot;Operacion completada&quot;</span><span class="p">,</span> <span class="s2">&quot;Curso eliminado&quot;</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">limpiar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+                    <span class="n">Estudiante</span><span class="p">()</span><span class="o">.</span><span class="n">limpiar_arbol</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
                 <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al intentar borrar la tabla de estudiantes&quot;</span><span class="p">)</span></div></div>
 </pre></div>

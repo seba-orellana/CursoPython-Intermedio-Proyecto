@@ -1,5 +1,6 @@
 import sqlite3
 from tkinter.messagebox import showerror, showinfo, askyesno
+from model import Estudiante
 
 
 class Base():
@@ -64,6 +65,6 @@ class Base():
                     sql = "DROP TABLE curso"
                     self.cursor.execute(sql)
                     showinfo("Operacion completada", "Curso eliminado")
-                    self.limpiar_arbol(tree)
+                    Estudiante().limpiar_arbol(tree)
                 except sqlite3.OperationalError:
                     print("Error al intentar borrar la tabla de estudiantes")

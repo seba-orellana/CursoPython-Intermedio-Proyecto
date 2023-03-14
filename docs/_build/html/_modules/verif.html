@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>regex &mdash; documentación de MiProyecto - 0.0.1</title>
+  <title>verif &mdash; documentación de Proyecto-Nivel-Intermedio - 0.0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            MiProyecto
+            Proyecto-Nivel-Intermedio
           </a>
               <div class="version">
                 0.0.1
@@ -47,7 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../controller.html">controller module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../db.html">db module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model.html">model module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../regex.html">regex module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../verif.html">verif module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../view.html">view module</a></li>
 </ul>
 
@@ -57,7 +57,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MiProyecto</a>
+          <a href="../index.html">Proyecto-Nivel-Intermedio</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -66,7 +66,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Código de módulo</a></li>
-      <li class="breadcrumb-item active">regex</li>
+      <li class="breadcrumb-item active">verif</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -75,7 +75,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Código fuente para regex</h1><div class="highlight"><pre>
+  <h1>Código fuente para verif</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="c1"># REGEX</span>
@@ -91,12 +91,12 @@
 <span class="c1"># AAAA=[1900-2019]</span>
 
 
-<div class="viewcode-block" id="Reg"><a class="viewcode-back" href="../regex.html#regex.Reg">[documentos]</a><span class="k">class</span> <span class="nc">Reg</span><span class="p">():</span>
+<div class="viewcode-block" id="Reg"><a class="viewcode-back" href="../verif.html#verif.Reg">[documentos]</a><span class="k">class</span> <span class="nc">Reg</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Clase utilizada para realizar toda la validacion de datos que el usuario \</span>
 <span class="sd">    ingresa en los distintos campos de la aplicacion</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Reg.validar_fecha"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_fecha">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_fecha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<div class="viewcode-block" id="Reg.validar_fecha"><a class="viewcode-back" href="../verif.html#verif.Reg.validar_fecha">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_fecha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Se verifica si la fecha ingresada cumple el formato **DD/MM/AAAA** \n</span>
 <span class="sd">        Donde: \n</span>
@@ -111,7 +111,7 @@
                   <span class="s2">&quot;(/)(0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-1][0-9])$&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Reg.validar_dni"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_dni">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_dni</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<div class="viewcode-block" id="Reg.validar_dni"><a class="viewcode-back" href="../verif.html#verif.Reg.validar_dni">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_dni</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Se verifica si el DNI ingresado cumple uno de los siguientes \</span>
 <span class="sd">        formatos: \n</span>
@@ -126,7 +126,7 @@
         <span class="n">patron</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d{7,8}$&#39;</span>
         <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Reg.validar_nombre_apellido"><a class="viewcode-back" href="../regex.html#regex.Reg.validar_nombre_apellido">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_nombre_apellido</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<div class="viewcode-block" id="Reg.validar_nombre_apellido"><a class="viewcode-back" href="../verif.html#verif.Reg.validar_nombre_apellido">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_nombre_apellido</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Se verifica si el nombre o el apellido ingresado cumple las \</span>
 <span class="sd">        siguientes condiciones: \n</span>
