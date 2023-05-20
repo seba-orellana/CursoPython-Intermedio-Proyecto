@@ -1,4 +1,4 @@
-# CursoPython-Intermedio-Proyecto
+# CursoPython-Intermedio-Avanzado-Proyecto
 Proyecto del curso de python nivel intermedio UTN 2023
 
 09/02/2023  
@@ -36,4 +36,10 @@ Proyecto del curso de python nivel intermedio UTN 2023
 12/3/2023
 
 *Agregada verificaciones de try - except  
-*Documentado el funcionamiento de la aplicacion utilizando Sphinx
+*Documentado el funcionamiento de la aplicacion utilizando Sphinx  
+
+Proyecto del curso de python nivel avanzado UTN 2023
+
+20/05/2023   
+
+*Agregado patron observador
