@@ -37,7 +37,3 @@ Proyecto del curso de python nivel intermedio UTN 2023
 
 *Agregada verificaciones de try - except  
 *Documentado el funcionamiento de la aplicacion utilizando Sphinx
-
-FALTA POR HACER:  
- 
--Testeo general de la aplicacion  
