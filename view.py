@@ -14,8 +14,6 @@ class Vista():
     Clase que almacena todos los metodos y variables necesarios para colocar \
     todos los elementos en sus posiciones dentro de la aplicacion en tkinter
     """
-    def __init__(self):
-        pass
 
     def principal(self, main):
         """

@@ -1,9 +1,10 @@
 from tkinter.messagebox import showerror, showinfo
 from verif import Reg
 import sqlite3
+from observer import Objeto
 
 
-class Estudiante():
+class Estudiante(Objeto):
     """
     Clase la cual contiene todos los metodos utilizados para \
     realizar el C.R.U.D. junto con los metodos utilizados para\
@@ -112,6 +113,9 @@ class Estudiante():
         """
         self.crear_alumno(dni, nombre, apellido, nacimiento)
         self.cargar_arbol(tree)
+        # Observador
+        self.update('insertar_alumno', dni.get(),
+                    nombre.get(), apellido.get(), nacimiento.get())
 
     # BAJA
 
@@ -138,6 +142,8 @@ class Estudiante():
             cursor.execute(sql)
             con.commit()
             self.cargar_arbol(tree)
+            # Observador
+            self.update('borrar_alumno', valor)
 
     # CONSULTA
 
@@ -177,6 +183,8 @@ class Estudiante():
                                      + str(res[0])+"\nNombre: " + res[1] +
                                      "\nApellido: " + res[2] +
                                      "\nFecha de Nacimiento: "+res[3])
+                            # Observador
+                            self.update('consultar_alumno', valor)
                     else:
                         showerror("Error al consultar por DNI",
                                   "Verifique el formato del dato ingresado")
@@ -195,6 +203,8 @@ class Estudiante():
                                      + str(res[0])+"\nNombre: " + res[1] +
                                      "\nApellido: " + res[2] +
                                      "\nFecha de Nacimiento: "+res[3])
+                            # Observador
+                            self.update('consultar_alumno', valor)
                     else:
                         showerror("Error al consultar por Nombre",
                                   "Verifique el formato del dato ingresado")
@@ -213,6 +223,8 @@ class Estudiante():
                                      + str(res[0])+"\nNombre: " + res[1] +
                                      "\nApellido: " + res[2] +
                                      "\nFecha de Nacimiento: "+res[3])
+                            # Observador
+                            self.update('consultar_alumno', valor)
                     else:
                         showerror("Error al consultar por Apellido",
                                   "Verifique el formato del dato ingresado")
@@ -231,6 +243,8 @@ class Estudiante():
                                      + str(res[0])+"\nNombre: " + res[1] +
                                      "\nApellido: " + res[2] +
                                      "\nFecha de Nacimiento: "+res[3])
+                            # Observador
+                            self.update('consultar_alumno', valor)
                     else:
                         showerror("Error al consultar por Fecha de Nacimiento",
                                   "Verifique el formato del dato ingresado")
@@ -273,6 +287,8 @@ class Estudiante():
                                    + val_a_modificar) + "'"
                             cursor.execute(sql)
                             con.commit()
+                            # Observador
+                            self.update('modificar_alumno', valor)
                         else:
                             showerror("Error al modificar DNI",
                                       "Verifique el formato del dato \
@@ -284,6 +300,8 @@ class Estudiante():
                                    + val_a_modificar) + "'"
                             cursor.execute(sql)
                             con.commit()
+                            # Observador
+                            self.update('modificar_alumno', valor)
                         else:
                             showerror("Error al modificar Nombre",
                                       "Verifique el formato del dato \
@@ -295,6 +313,8 @@ class Estudiante():
                                    + val_a_modificar) + "'"
                             cursor.execute(sql)
                             con.commit()
+                            # Observador
+                            self.update('modificar_alumno', valor)
                         else:
                             showerror("Error al modificar Apellido",
                                       "Verifique el formato del dato \
@@ -306,6 +326,8 @@ class Estudiante():
                                    + val_a_modificar)
                             cursor.execute(sql)
                             con.commit()
+                            # Observador
+                            self.update('modificar_alumno', valor)
                         else:
                             showerror("Error al modificar la Fecha de \
                                       Nacimiento",
