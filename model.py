@@ -2,6 +2,9 @@ from tkinter.messagebox import showerror, showinfo
 from verif import Reg
 import sqlite3
 from observer import Objeto
+from decorators import agregar_logs
+from decorators import borrar_logs
+from decorators import modificar_logs
 
 
 class Estudiante(Objeto):
@@ -89,6 +92,7 @@ class Estudiante(Objeto):
                 showerror("Error al cargar estudiante",
                           "Verifique el formato de los datos cargados")
 
+    @agregar_logs
     def insertar_alumno(self, dni, nombre, apellido, nacimiento, tree):
         """
         Se realiza la carga del alumno utilizando ``Estudiante.crear_alumno()``
@@ -119,6 +123,7 @@ class Estudiante(Objeto):
 
     # BAJA
 
+    @borrar_logs
     def borrar_alumno(self, tree):
         """
         Se elimina el alumno de la base de datos de SQL y posteriormente \
@@ -251,6 +256,7 @@ class Estudiante(Objeto):
 
     # MODIFICAR
 
+    @modificar_logs
     def modificar_alumno(self, opc, val, tree):
         """
         Se modifica el estudiante seleccionado en la treeview(tabla), \

@@ -1,0 +1,2 @@
+21/05/23	18:58:33	 Se ha eliminado un registro de la base de datos 
+21/05/23	18:58:47	 Registro modificado en la base de datos 
