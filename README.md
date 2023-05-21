@@ -42,4 +42,8 @@
 
 20/05/2023   
 
-*Agregado patron observador
+*Agregado patron observador  
+
+21/05/2023
+
+*Agregados decoradores a funciones agregar_alumno, borrar_alumno y modificar_alumno dentro de model.py para que creen un archivo .txt con logs
